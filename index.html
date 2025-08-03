@@ -2,26 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sushant Devkota - Resume</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sushant Devkota | DevOps Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #1f2937;
+    }
+
+    header {
+      background-color: #1e293b;
+      color: #fff;
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      margin: 0.5rem 0 0;
+      font-size: 1.2rem;
+      color: #cbd5e1;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem;
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: #0f172a;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #94a3b8;
+      padding-bottom: 0.3rem;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .contact p, .experience p, .education p {
+      margin: 0.5rem 0;
+    }
+
+    footer {
+      background-color: #1e293b;
+      color: #cbd5e1;
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <div class="sidebar">
-      <img src="sushant.jpg" alt="Sushant Devkota" class="profile-pic" />
-      <h2>SUSHANT<br>DEVKOTA</h2>
-      <h4>DevOps Developer</h4>
-      <div class="section">
-        <h3>Contact</h3>
-        <p>📞 +977-984-3818474</p>
-        <p>📍 Lalitpur-14, Nakhipot</p>
-        <p>✉️ devkota.sushant31@gmail.com</p>
-        <p>🔗 LinkedIn:<br> sushant-devkota-a829b7229</p>
-      </div>
+  <header>
+    <h1>Sushant Devkota</h1>
+    <p>DevOps Developer | Docker | Jenkins | AWS | Git | Linux</p>
+  </header>
 
-      <div class="section">
-        <h3>Languages</h3>
+  <div class="container">
+    <section class="contact">
+      <h2>Contact</h2>
+      <p><strong>Email:</strong> devkota.sushant31@gmail.com</p>
+      <p><strong>Phone:</strong> +977-984-3818474</p>
+      <p><strong>Location:</strong> Lalitpur-14, Nakhipot, Nepal</p>
+      <p><strong>LinkedIn:</strong> sushant-devkota-a829b7229</p>
+    </section>
+
+    <section class="education">
+      <h2>Education</h2>
+      <p><strong>Himalaya College of Engineering</strong> | 2018 - 2023<br/>BE in Computer Engineering</p>
+      <p><strong>Kist College</strong> | 2016 - 2018<br/>+2 Science</p>
+    </section>
+
+    <section class="experience">
+      <h2>Work Experience</h2>
+      <div class="card">
+        <p><strong>DevOps Intern - Amniltech</strong> | Jan 2024 - Apr 2024</p>
+        <p>Worked with Docker, Jenkins, Git, AWS. Gained hands-on experience in CI/CD pipeline and cloud tools.</p>
+      </div>
+      <div class="card">
+        <p><strong>DevOps Trainee - Broadway Infosys</strong> | May 2025 - Jul 2025</p>
+        <p>Trained in AWS, Ansible, Terraform, Kubernetes, Prometheus, Grafana.</p>
+      </div>
+    </section>
+
+    <section class="experience">
+      <h2>Other Experience</h2>
+      <div class="card">
+        <p><strong>Volunteer - Isha Yoga Center</strong> | May 2024 - Mar 2025</p>
+        <p>Facilitated programs, Arduino training, and supported annual activities as part of Sadhanapada program.</p>
+      </div>
+      <div class="card">
+        <p><strong>Secretary - Himalaya Robotics Club</strong> | 2022 - May 2023</p>
+        <p>Led robotics events and technical workshops, managed training logistics.</p>
+      </div>
+    </section>
+
+    <section class="two-column">
+      <div>
+        <h2>Languages</h2>
         <ul>
           <li>Java</li>
           <li>Python</li>
@@ -30,9 +135,8 @@
           <li>HTML/CSS</li>
         </ul>
       </div>
-
-      <div class="section">
-        <h3>Frameworks / Systems</h3>
+      <div>
+        <h2>Frameworks & Tools</h2>
         <ul>
           <li>Linux</li>
           <li>Git</li>
@@ -42,38 +146,11 @@
           <li>Canva</li>
         </ul>
       </div>
-    </div>
-
-    <div class="main">
-      <div class="section">
-        <h2>Education</h2>
-        <p><strong>Himalaya College of Engineering</strong> | 2018 - 2023<br/>
-        BE. Computer Engineering</p>
-        <p><strong>Kist College</strong> | 2016 - 2018<br/>
-        +2 Science</p>
-      </div>
-
-      <div class="section">
-        <h2>Work Experience</h2>
-        <p><strong>Amniltech</strong> | 2024 Jan to April<br/>
-        Worked as intern<br/>
-        Used tools like Docker, Docker Container, Jenkins, Git, AWS</p>
-
-        <p><strong>Broadway Infosys</strong> | 2025 May to Jul<br/>
-        Training<br/>
-        Used multiple tools including AWS, Ansible, Terraform, Kubernetes, Prometheus and Grafana</p>
-      </div>
-
-      <div class="section">
-        <h2>Other Experience</h2>
-        <p><strong>Isha Yoga Center</strong> | 2024 May - 2025 Mar<br/>
-        Sadhanapad<br/>
-        Facilitated different programs, Arduino training, and other yearly activities</p>
-
-        <p><strong>Himalaya Robotics Club</strong> | 2022 to May 2023<br/>
-        Secretary</p>
-      </div>
-    </div>
+    </section>
   </div>
+
+  <footer>
+    &copy; 2025 Sushant Devkota | Built with HTML & CSS
+  </footer>
 </body>
 </html>
