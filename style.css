@@ -1,15 +1,3 @@
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f4f7fa;
-  color: #333;
-}
-
-a {
-  color: #0066cc;
-  text-decoration: none;
-}
-
 .container {
   max-width: 1000px;
   margin: auto;
@@ -27,73 +15,86 @@ a {
   align-items: center;
   flex-wrap: wrap;
 }
-
 .profile-img {
   width: 130px;
   height: 130px;
   border-radius: 50%;
   object-fit: cover;
   margin-right: 30px;
-  border: 4px solid #4f46e5;
+  border: 4px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.intro h1 {
+body {
+  font-family: 'Roboto', sans-serif;
   margin: 0;
-  font-size: 2.2em;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-.intro h2 {
-  margin-top: 5px;
-  font-weight: normal;
-  color: #cbd5e1;
+header {
+  background-color: #1f2937;
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
 }
 
-main h3 {
+.resume-button {
+  display: inline-block;
+  margin-top: 15px;
+  background-color: #10b981;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+section {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+h1 {
+  color: #ffffff;
+}
+
+h2 {
   border-bottom: 2px solid #4f46e5;
   padding-bottom: 5px;
   color: #1e40af;
   margin-top: 30px;
 }
 
-ul.edu, .experience {
-  list-style: none;
-  padding-left: 0;
-}
-
-.edu-time, .exp-time {
-  font-size: 0.9em;
-  color: #6b7280;
-}
-
-.experience div {
-  margin-bottom: 20px;
-}
-
-.skills-section {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-}
-
-.skills {
-  list-style: none;
-  padding-left: 0;
+.skills-list, .soft-skills {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.skills li {
-  background-color: #e0e7ff;
-  padding: 6px 12px;
+.skills-list span, .soft-skills span {
+  background-color: #e5e7eb;
+  padding: 8px 12px;
   border-radius: 20px;
-  font-size: 0.95em;
+  font-size: 14px;
+}
+
+.project {
+  margin-bottom: 20px;
+}
+
+.contact a {
+  display: inline-block;
+  margin-right: 15px;
+  color: #1f2937;
+  text-decoration: none;
 }
 
 footer {
-  background: #1f2937;
-  color: #cbd5e1;
   text-align: center;
-  padding: 20px;
+  background-color: #1f2937;
+  color: white;
+  padding: 20px 10px;
   margin-top: 40px;
 }
