@@ -1,101 +1,599 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sushant Devkota | DevOps Developer</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sushant Devkota — Aspiring DevOps Engineer</title>
+<meta name="description" content="Sushant Devkota — Computer Engineering graduate, DevOps &amp; Systems IT professional. Portfolio, experience and projects.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#121722;
+    --bg-raise:#171E2B;
+    --panel:#1B2330;
+    --panel-2:#212B3A;
+    --border:#2B3648;
+    --border-soft:#232D3D;
+    --text:#E8ECF3;
+    --text-dim:#9AA6B8;
+    --text-faint:#5E6B80;
+    --amber:#F0A63C;
+    --amber-dim:#3A2E1A;
+    --teal:#4FD1AE;
+    --teal-dim:#173028;
+    --font-mono:'JetBrains Mono', ui-monospace, monospace;
+    --font-sans:'IBM Plex Sans', system-ui, sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:var(--font-sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  ::selection{background:var(--teal); color:#08251D;}
+
+  /* ---------- nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:40;
+    background:rgba(18,23,34,0.86);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--border-soft);
+  }
+  .nav-inner{display:flex; align-items:center; justify-content:space-between; padding:16px 28px; max-width:var(--maxw); margin:0 auto;}
+  .brand{font-family:var(--font-mono); font-size:14px; color:var(--teal); letter-spacing:0.02em; text-decoration:none; white-space:nowrap;}
+  .brand .prompt-sym{color:var(--text-faint);}
+  nav.links{display:flex; gap:28px; align-items:center;}
+  nav.links a{
+    font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--text-dim); text-decoration:none; transition:color .15s ease;
+  }
+  nav.links a:hover{color:var(--text);}
+  .nav-cta{
+    font-family:var(--font-mono); font-size:12.5px; letter-spacing:0.03em;
+    color:var(--bg); background:var(--teal); padding:8px 16px; border-radius:4px;
+    text-decoration:none; font-weight:600; white-space:nowrap;
+  }
+  .nav-toggle{display:none;}
+
+  /* ---------- hero ---------- */
+  .hero{padding:88px 0 64px;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;}
+  .eyebrow{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--amber);
+    text-transform:uppercase; letter-spacing:0.12em; margin:0 0 18px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .eyebrow::before{content:''; width:7px; height:7px; border-radius:50%; background:var(--amber); box-shadow:0 0 0 3px var(--amber-dim); display:inline-block;}
+  .hero h1{
+    font-family:var(--font-sans); font-weight:600; font-size:clamp(34px,4.4vw,52px);
+    line-height:1.08; margin:0 0 18px; letter-spacing:-0.01em;
+  }
+  .hero h1 .accent{color:var(--teal);}
+  .hero p.lede{color:var(--text-dim); font-size:17px; max-width:46ch; margin:0 0 32px;}
+  .hero-cta{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--font-mono); font-size:13px; letter-spacing:0.02em; text-decoration:none;
+    padding:12px 22px; border-radius:4px; display:inline-flex; align-items:center; gap:8px;
+    border:1px solid var(--border); transition:border-color .15s ease, transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-1px);}
+  .btn-primary{background:var(--teal); border-color:var(--teal); color:#08251D; font-weight:600;}
+  .btn-primary:hover{background:#63dcbb;}
+  .btn-ghost{color:var(--text); border-color:var(--border);}
+  .btn-ghost:hover{border-color:var(--text-dim);}
+
+  /* terminal */
+  .terminal{
+    background:var(--panel); border:1px solid var(--border); border-radius:8px; overflow:hidden;
+    box-shadow:0 24px 60px -24px rgba(0,0,0,0.55);
+  }
+  .terminal-bar{
+    display:flex; align-items:center; gap:8px; padding:11px 14px; background:var(--panel-2);
+    border-bottom:1px solid var(--border);
+  }
+  .dot{width:10px; height:10px; border-radius:50%;}
+  .dot.r{background:#EA6A5D;} .dot.y{background:#F0BC4F;} .dot.g{background:#61C554;}
+  .terminal-title{margin-left:8px; font-family:var(--font-mono); font-size:11.5px; color:var(--text-faint);}
+  .terminal-body{padding:22px 20px; font-family:var(--font-mono); font-size:14px; min-height:230px;}
+  .terminal-body .line{margin:0 0 12px; color:var(--text-dim);}
+  .terminal-body .prompt{color:var(--teal);}
+  .terminal-body .out{color:var(--text); display:block; margin:4px 0 0 0;}
+  .terminal-body .status-line{display:flex; align-items:center; gap:8px; margin-top:2px;}
+  .pulse{width:8px; height:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 0 rgba(79,209,174,0.6); animation:pulse 2s infinite;}
+  @keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(79,209,174,0.5);}
+    70%{box-shadow:0 0 0 8px rgba(79,209,174,0);}
+    100%{box-shadow:0 0 0 0 rgba(79,209,174,0);}
+  }
+  .cursor{display:inline-block; width:8px; height:16px; background:var(--teal); vertical-align:-3px; animation:blink 1s step-end infinite;}
+  @keyframes blink{50%{opacity:0;}}
+  #typed-role{white-space:pre-wrap;}
+
+  /* ---------- section shell ---------- */
+  section{padding:76px 0;}
+  .section-head{margin-bottom:44px; max-width:60ch;}
+  .section-tag{font-family:var(--font-mono); font-size:12px; color:var(--teal); text-transform:uppercase; letter-spacing:0.12em; margin:0 0 10px;}
+  .section-title{font-size:clamp(24px,3vw,32px); font-weight:600; margin:0 0 12px; letter-spacing:-0.01em;}
+  .section-desc{color:var(--text-dim); font-size:15.5px; margin:0;}
+  .divider{border:none; border-top:1px solid var(--border-soft); margin:0;}
+
+  /* ---------- pipeline ---------- */
+  .pipeline{display:flex; flex-direction:column; gap:0; position:relative;}
+  .stage{
+    display:grid; grid-template-columns:120px 1fr; gap:24px; padding:26px 0;
+    border-top:1px solid var(--border-soft); position:relative;
+    opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease;
+  }
+  .stage:first-child{border-top:none;}
+  .stage.in{opacity:1; transform:translateY(0);}
+  .stage-tag{font-family:var(--font-mono); font-size:12px; letter-spacing:0.1em; color:var(--text-faint); padding-top:3px;}
+  .stage-main{display:flex; flex-direction:column; gap:6px;}
+  .stage-top{display:flex; align-items:baseline; gap:12px; flex-wrap:wrap;}
+  .stage-title{font-size:18px; font-weight:600; margin:0;}
+  .stage-org{color:var(--text-dim); font-size:14px;}
+  .stage-desc{color:var(--text-dim); font-size:14.5px; margin:4px 0 0; max-width:62ch;}
+  .stage-meta{display:flex; align-items:center; gap:10px; margin-top:8px; flex-wrap:wrap;}
+  .badge{
+    font-family:var(--font-mono); font-size:11px; letter-spacing:0.04em; padding:4px 9px; border-radius:100px;
+    display:inline-flex; align-items:center; gap:6px; white-space:nowrap;
+  }
+  .badge.ok{background:var(--teal-dim); color:var(--teal); border:1px solid rgba(79,209,174,0.35);}
+  .badge.run{background:var(--amber-dim); color:var(--amber); border:1px solid rgba(240,166,60,0.35);}
+  .badge .dotb{width:6px; height:6px; border-radius:50%; background:currentColor;}
+  .stage-date{font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
+
+  /* ---------- experience ---------- */
+  .exp-item{padding:28px 0; border-top:1px solid var(--border-soft);}
+  .exp-item:first-child{border-top:none;}
+  .exp-head{display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:12px;}
+  .exp-role{font-size:19px; font-weight:600; margin:0 0 3px;}
+  .exp-org{color:var(--teal); font-size:14px; font-family:var(--font-mono);}
+  .exp-dates{font-family:var(--font-mono); font-size:12.5px; color:var(--text-faint); white-space:nowrap;}
+  .exp-list{margin:0; padding-left:20px; color:var(--text-dim); font-size:15px;}
+  .exp-list li{margin-bottom:8px;}
+  .exp-list li::marker{color:var(--teal);}
+
+  /* ---------- skills ---------- */
+  .stack-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:16px;}
+  .stack-card{background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:20px 20px 18px;}
+  .stack-card h3{
+    font-family:var(--font-mono); font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em;
+    color:var(--amber); margin:0 0 14px; display:flex; align-items:center; gap:8px;
+  }
+  .stack-card h3::before{content:'#'; color:var(--text-faint);}
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .tag{
+    font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); background:var(--panel-2);
+    border:1px solid var(--border); border-radius:4px; padding:5px 9px;
+  }
+
+  /* ---------- projects ---------- */
+  .proj-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:20px;}
+  .proj-card{
+    background:var(--panel); border:1px solid var(--border); border-radius:8px; padding:24px;
+    display:flex; flex-direction:column; gap:12px; transition:border-color .15s ease, transform .15s ease;
+  }
+  .proj-card:hover{border-color:var(--teal); transform:translateY(-2px);}
+  .proj-index{font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
+  .proj-title{font-size:17px; font-weight:600; margin:0;}
+  .proj-desc{color:var(--text-dim); font-size:14.5px; margin:0; flex-grow:1;}
+  .proj-tags{display:flex; flex-wrap:wrap; gap:6px; margin-top:4px;}
+  .proj-tags span{font-family:var(--font-mono); font-size:11px; color:var(--teal); background:var(--teal-dim); padding:3px 8px; border-radius:4px;}
+
+  /* ---------- education / languages ---------- */
+  .edu-lang{display:grid; grid-template-columns:1.4fr 1fr; gap:48px;}
+  .edu-item{padding:18px 0; border-top:1px solid var(--border-soft);}
+  .edu-item:first-child{border-top:none;}
+  .edu-item h3{margin:0 0 3px; font-size:16.5px; font-weight:600;}
+  .edu-item p{margin:0; color:var(--text-dim); font-size:14px;}
+  .edu-item .edu-note{font-family:var(--font-mono); font-size:12px; color:var(--amber); margin-top:6px;}
+  .lang-list{display:flex; flex-direction:column; gap:14px;}
+  .lang-row{display:flex; align-items:center; justify-content:space-between; font-size:14.5px;}
+  .lang-row .lvl{font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
+
+  /* ---------- contact / footer ---------- */
+  .contact{
+    border-top:1px solid var(--border-soft); border-bottom:1px solid var(--border-soft);
+    background:var(--bg-raise);
+  }
+  .contact-inner{padding:76px 28px; max-width:var(--maxw); margin:0 auto; text-align:left;}
+  .contact-status{display:flex; align-items:center; gap:10px; margin-bottom:18px;}
+  .contact-status .pulse{background:var(--teal);}
+  .contact-status span{font-family:var(--font-mono); font-size:12.5px; color:var(--teal); letter-spacing:0.08em; text-transform:uppercase;}
+  .contact h2{font-size:clamp(26px,3.6vw,38px); font-weight:600; margin:0 0 16px; max-width:18ch;}
+  .contact p{color:var(--text-dim); font-size:16px; max-width:56ch; margin:0 0 32px;}
+  .contact-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:16px; margin-bottom:32px;}
+  .contact-card{
+    display:flex; align-items:center; gap:12px; padding:14px 16px; background:var(--panel);
+    border:1px solid var(--border); border-radius:8px; text-decoration:none; color:var(--text);
+    transition:border-color .15s ease;
+  }
+  .contact-card:hover{border-color:var(--teal);}
+  .contact-card .ic{width:34px; height:34px; border-radius:6px; background:var(--panel-2); display:flex; align-items:center; justify-content:center; flex-shrink:0;}
+  .contact-card .ic svg{width:16px; height:16px; stroke:var(--teal);}
+  .contact-card .cc-label{font-family:var(--font-mono); font-size:10.5px; text-transform:uppercase; letter-spacing:0.06em; color:var(--text-faint); margin:0 0 2px;}
+  .contact-card .cc-value{font-size:14px; margin:0; word-break:break-word;}
+
+  footer{padding:28px; text-align:center;}
+  footer p{margin:0; font-family:var(--font-mono); font-size:12px; color:var(--text-faint);}
+
+  .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .stage, .reveal{transition:none; opacity:1; transform:none;}
+    .cursor, .pulse{animation:none;}
+  }
+
+  @media (max-width: 860px){
+    .hero-grid{grid-template-columns:1fr; gap:40px;}
+    .edu-lang{grid-template-columns:1fr; gap:36px;}
+    nav.links{display:none;}
+  }
+  @media (max-width: 600px){
+    .stage{grid-template-columns:1fr; gap:8px;}
+    .exp-head{flex-direction:column; gap:4px;}
+    .nav-inner{padding:14px 20px;}
+  }
+</style>
 </head>
 <body>
-  <header class="hero">
-    <div class="container">
-      <img src="sushant.png" alt="Sushant Devkota" class="profile-img" />
-      <div class="intro">
-        <h1>Sushant Devkota</h1>
-        <p>DevOps Engineer</p>
-        <a href="resume.pdf" class="resume-button" download>Download Resume</a>
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top"><span class="prompt-sym">~/</span>sushant.dev</a>
+    <nav class="links">
+      <a href="#pipeline">Path</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+    </nav>
+    <a class="nav-cta" href="resume.pdf" target="_blank" rel="noopener">Resume ↓</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Open to work</p>
+        <h1>Sushant Devkota builds the <span class="accent">pipelines</span> that keep systems running.</h1>
+        <p class="lede">Computer Engineering graduate working in public-sector IT and e-governance by day, training on Docker, Kubernetes, and Terraform by night. Looking for a full-time seat on a DevOps or Cloud Engineering team.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#contact">Get in touch</a>
+          <a class="btn btn-ghost" href="resume.pdf" target="_blank" rel="noopener">View résumé</a>
+        </div>
+      </div>
+      <div class="terminal" role="img" aria-label="Terminal window introducing Sushant Devkota">
+        <div class="terminal-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="terminal-title">sushant@devkota: ~</span>
+        </div>
+        <div class="terminal-body">
+          <p class="line"><span class="prompt">$</span> whoami</p>
+          <p class="line out">Sushant Devkota</p>
+          <p class="line"><span class="prompt">$</span> cat role.txt</p>
+          <p class="line out" id="typed-role"></p>
+          <p class="line"><span class="prompt">$</span> location --show</p>
+          <p class="line out">Lalitpur, Nepal</p>
+          <p class="line"><span class="prompt">$</span> status</p>
+          <div class="status-line">
+            <span class="pulse"></span>
+            <span class="out" style="margin:0;">available for hire</span>
+          </div>
+        </div>
       </div>
     </div>
-  </header>
+  </section>
 
-<section>
-  <h2>About Me</h2>
-  <p>
-    I am a computer engineering graduate and an aspiring DevOps Engineer with a strong foundation in software development and cloud technologies. I am passionate about automating infrastructure, optimizing deployment pipelines, and ensuring system reliability. Currently seeking new opportunities to apply and expand my skills in a collaborative and growth-oriented environment.
-  </p>
-</section>
+  <section id="pipeline">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="section-tag">// career, read as a pipeline</p>
+        <h2 class="section-title">How I got here</h2>
+        <p class="section-desc">Five stages, same as any deploy: build the foundation, train, test it under real conditions, ship it, then keep watching the dashboards.</p>
+      </div>
+      <div class="pipeline">
+        <div class="stage">
+          <div class="stage-tag">01 · SOURCE</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">Computer Engineering</h3>
+              <span class="stage-org">Himalaya College of Engineering</span>
+            </div>
+            <p class="stage-desc">Coursework and major project completed, building the foundation for everything downstream.</p>
+            <div class="stage-meta">
+              <span class="badge ok"><span class="dotb"></span>complete</span>
+              <span class="stage-date">2018 – 2023</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-tag">02 · BUILD</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">DevOps Training</h3>
+              <span class="stage-org">Broadway Infosys</span>
+            </div>
+            <p class="stage-desc">Hands-on with Docker, Kubernetes, Terraform, Ansible, Jenkins, AWS, Prometheus and Grafana — the toolchain this whole page is themed after.</p>
+            <div class="stage-meta">
+              <span class="badge ok"><span class="dotb"></span>complete</span>
+              <span class="stage-date">May – Jul 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-tag">03 · TEST</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">IT Assistant, Intern</h3>
+              <span class="stage-org">Kathmandu Metropolitan City</span>
+            </div>
+            <p class="stage-desc">Put infrastructure fundamentals to work: network monitoring, database upkeep, and functional testing before rollout.</p>
+            <div class="stage-meta">
+              <span class="badge ok"><span class="dotb"></span>complete</span>
+              <span class="stage-date">Oct – Dec 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-tag">04 · DEPLOY</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">IT & Administrative Assistant</h3>
+              <span class="stage-org">KMC — Ward 22 Office</span>
+            </div>
+            <p class="stage-desc">Running e-governance systems and IT support in production, for real citizens, every day.</p>
+            <div class="stage-meta">
+              <span class="badge run"><span class="dotb"></span>live</span>
+              <span class="stage-date">Dec 2024 – Present</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-tag">05 · MONITOR</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">What's next</h3>
+              <span class="stage-org">Actively watching for the right role</span>
+            </div>
+            <p class="stage-desc">Sharpening cloud and automation skills while looking for a full-time DevOps, Cloud, or Systems Engineering opportunity.</p>
+            <div class="stage-meta">
+              <span class="badge run"><span class="dotb"></span>ongoing</span>
+              <span class="stage-date">Now</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<section>
-  <h2>Skills</h2>
-  <h3>Technical Skills</h3>
-  <div class="skills-list">
-    <span>Java</span><span>Python</span><span>C++</span><span>C#</span><span>HTML/CSS</span>
-    <span>Linux</span><span>Git</span><span>Docker</span><span>Jenkins</span><span>MySQL</span>
-    <span>AWS</span><span>Ansible</span><span>Terraform</span><span>Kubernetes</span>
-    <span>Prometheus</span><span>Grafana</span><span>Canva</span>
+  <hr class="divider">
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="section-tag">// experience</p>
+        <h2 class="section-title">Where I've worked</h2>
+      </div>
+      <div class="reveal">
+        <div class="exp-item">
+          <div class="exp-head">
+            <div>
+              <p class="exp-role">Information Technology & Administrative Assistant</p>
+              <p class="exp-org">Kathmandu Metropolitan City — Ward 22 Office</p>
+            </div>
+            <span class="exp-dates">Dec 2024 – Present</span>
+          </div>
+          <ul class="exp-list">
+            <li>Operate core e-governance platforms, including the municipal Sifarish System, to process public service requests and manage digital workflows.</li>
+            <li>Provide on-site IT support for Windows 11 environments: troubleshooting, network maintenance, and peripheral setup.</li>
+            <li>Handle documentation verification and digital record-keeping for ward residents.</li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-head">
+            <div>
+              <p class="exp-role">IT Assistant (Intern)</p>
+              <p class="exp-org">Kathmandu Metropolitan City</p>
+            </div>
+            <span class="exp-dates">Oct 2025 – Dec 2025</span>
+          </div>
+          <ul class="exp-list">
+            <li>Supported IT infrastructure maintenance, daily system operations, and network monitoring across municipal departments.</li>
+            <li>Assisted with functional software testing ahead of departmental rollouts.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="section-tag">// stack</p>
+        <h2 class="section-title">Tools I work with</h2>
+      </div>
+      <div class="stack-grid reveal">
+        <div class="stack-card">
+          <h3>cloud-and-devops</h3>
+          <div class="tag-row">
+            <span class="tag">AWS (EC2/S3/IAM)</span><span class="tag">Docker</span><span class="tag">Kubernetes</span>
+            <span class="tag">Terraform</span><span class="tag">Ansible</span><span class="tag">Jenkins</span>
+            <span class="tag">Git</span><span class="tag">CI/CD</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>systems-and-monitoring</h3>
+          <div class="tag-row">
+            <span class="tag">Linux Admin</span><span class="tag">Windows 11 Admin</span><span class="tag">Prometheus</span>
+            <span class="tag">Grafana</span><span class="tag">Network Monitoring</span><span class="tag">Software Testing</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>languages-and-frameworks</h3>
+          <div class="tag-row">
+            <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span><span class="tag">C#</span>
+            <span class="tag">HTML/CSS</span><span class="tag">Django</span><span class="tag">MySQL</span><span class="tag">PostgreSQL</span>
+          </div>
+        </div>
+        <div class="stack-card">
+          <h3>public-sector-systems</h3>
+          <div class="tag-row">
+            <span class="tag">Municipal Sifarish System</span><span class="tag">E-Governance Workflows</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <p class="section-tag">// projects</p>
+        <h2 class="section-title">Things I've built</h2>
+      </div>
+      <div class="proj-grid reveal">
+        <div class="proj-card">
+          <span class="proj-index">01</span>
+          <h3 class="proj-title">Cloud & CI/CD infrastructure deployment</h3>
+          <p class="proj-desc">Broadway Infosys capstone. Engineered an automated build-and-deploy pipeline wiring Docker, Jenkins, Kubernetes, Terraform, and AWS together end-to-end.</p>
+          <div class="proj-tags"><span>Docker</span><span>Jenkins</span><span>Kubernetes</span><span>Terraform</span><span>AWS</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="proj-index">02</span>
+          <h3 class="proj-title">Virtual cloth try-on using neural networks</h3>
+          <p class="proj-desc">A deep learning system that lets e-commerce shoppers preview clothing virtually before purchase.</p>
+          <div class="proj-tags"><span>Python</span><span>Neural Networks</span></div>
+        </div>
+        <div class="proj-card">
+          <span class="proj-index">03</span>
+          <h3 class="proj-title">Employee recommendation system</h3>
+          <p class="proj-desc">A content-based recommendation engine that parses, analyzes, and shortlists candidate CVs for recruiters.</p>
+          <div class="proj-tags"><span>Python</span><span>Django</span><span>PostgreSQL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <section id="education">
+    <div class="wrap edu-lang">
+      <div class="reveal">
+        <p class="section-tag">// education</p>
+        <h2 class="section-title" style="margin-bottom:24px;">Background</h2>
+        <div class="edu-item">
+          <h3>B.E. Computer Engineering</h3>
+          <p>Himalaya College of Engineering · 2018 – 2023</p>
+          <p class="edu-note">Coursework & major project complete — final backlog clearance in progress</p>
+        </div>
+        <div class="edu-item">
+          <h3>+2 Science</h3>
+          <p>KIST College · 2016 – 2018</p>
+        </div>
+      </div>
+      <div class="reveal">
+        <p class="section-tag">// languages</p>
+        <h2 class="section-title" style="margin-bottom:24px;">Languages</h2>
+        <div class="lang-list">
+          <div class="lang-row"><span>Nepali</span><span class="lvl">native / fluent</span></div>
+          <div class="lang-row"><span>English</span><span class="lvl">fluent</span></div>
+          <div class="lang-row"><span>Hindi</span><span class="lvl">conversational</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<section class="contact" id="contact">
+  <div class="contact-inner reveal">
+    <div class="contact-status">
+      <span class="pulse"></span>
+      <span>status: available for hire</span>
+    </div>
+    <h2>Let's talk about your next hire.</h2>
+    <p>Based in Lalitpur, Nepal, and open to on-site, hybrid, or remote DevOps, Cloud, or Systems Engineering roles. Reach out any time — I usually reply within a day.</p>
+    <div class="contact-grid">
+      <a class="contact-card" href="mailto:devkota.sushant31@gmail.com">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg></span>
+        <span><span class="cc-label">Email</span><p class="cc-value">devkota.sushant31@gmail.com</p></span>
+      </a>
+      <a class="contact-card" href="tel:+9779843818474">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2.1z"/></svg></span>
+        <span><span class="cc-label">Phone</span><p class="cc-value">+977 984-3818474</p></span>
+      </a>
+      <a class="contact-card" href="https://www.linkedin.com/in/sushant-devkota-a829b7229" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span>
+        <span><span class="cc-label">LinkedIn</span><p class="cc-value">sushant-devkota</p></span>
+      </a>
+      <a class="contact-card" href="https://maps.google.com/?q=Lalitpur-14+Nakhipot+Nepal" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-7.4 7-12.5a7 7 0 0 0-14 0C5 14.6 12 22 12 22z"/><circle cx="12" cy="9.5" r="2.4"/></svg></span>
+        <span><span class="cc-label">Location</span><p class="cc-value">Lalitpur-14 Nakhipot, Nepal</p></span>
+      </a>
+    </div>
   </div>
-  <h3>Soft Skills</h3>
-  <div class="soft-skills">
-    <span>Communication</span><span>Teamwork</span><span>Interpersonal Skills</span>
-    <span>Adaptability</span><span>Problem Solving</span>
-  </div>
 </section>
-
-<section>
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3>Virtual Cloth Try-On Using Neural Network</h3>
-    <p>A deep learning-based system enabling users to try clothes virtually before purchasing, aimed at enhancing e-commerce experiences.</p>
-    <p><strong>Technologies Used:</strong> Python, Neural Networks</p>
-  </div>
-
-  <div class="project">
-    <h3>Employee Recommendation System</h3>
-    <p>Content-based recommendation system to shortlist candidates for hiring using CV analysis for organizational recruitment.</p>
-    <p><strong>Technologies Used:</strong> Python, Django, PostgreSQL</p>
-    <p><strong>Skills Gained:</strong> Leadership, Team Collaboration, Communication, Time Management</p>
-  </div>
-</section>
-
-<section>
-  <h2>Experience</h2>
-  <p><strong>DevOps Training – Broadway Infosys</strong><br/>
-  May 2025 – July 2025</p>
-  <ul>
-    <li>Hands-on training in CI/CD tools and DevOps methodologies.</li>
-    <li>Worked with tools like Docker, Jenkins, Kubernetes, Ansible, and Terraform.</li>
-    <li>Built and deployed applications using AWS services and monitoring tools such as Prometheus and Grafana.</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Education</h2>
-  <ul>
-    <li><strong>Himalaya College of Engineering</strong> — B.E. Computer Engineering (2018–2023)</li>
-    <li><strong>KIST College</strong> — +2 Science (2016–2018)</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Languages</h2>
-  <ul>
-    <li>Nepali (Native)</li>
-    <li>English (Fluent)</li>
-    <li>Hindi (Conversational)</li>
-  </ul>
-</section>
-
-<section>
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:devkota.sushant31@gmail.com">devkota.sushant31@gmail.com</a></p>
-  <p>Phone: <a href="tel:+9779843818474">+9779843818474</a></p>
-  <a href="https://www.linkedin.com/in/sushant-devkota-a829b7229" target="_blank">LinkedIn Profile</a></section>
 
 <footer>
-  <p>© 2025 Sushant Devkota. All rights reserved.</p>
+  <p>Built by Sushant Devkota · deployed like everything else he ships</p>
 </footer>
 
-</body>
+<script>
+  var roleText = "Aspiring DevOps Engineer & Systems IT Professional";
+  var roleEl = document.getElementById('typed-role');
+  var i = 0;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function typeRole(){
+    if(reduceMotion){ roleEl.textContent = roleText; return; }
+    if(i <= roleText.length){
+      roleEl.innerHTML = roleText.slice(0, i) + '<span class="cursor"></span>';
+      i++;
+      setTimeout(typeRole, 28);
+    } else {
+      roleEl.innerHTML = roleText + '<span class="cursor"></span>';
+    }
+  }
+  typeRole();
 
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(function(el){ observer.observe(el); });
+
+  var stages = document.querySelectorAll('.stage');
+  var stageObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry, idx){
+      if(entry.isIntersecting){
+        var stageIndex = Array.prototype.indexOf.call(stages, entry.target);
+        setTimeout(function(){ entry.target.classList.add('in'); }, stageIndex >= 0 ? (stageIndex % 5) * 90 : 0);
+        stageObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.2 });
+  stages.forEach(function(el){ stageObserver.observe(el); });
+</script>
+
+</body>
 </html>
