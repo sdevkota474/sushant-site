@@ -278,7 +278,7 @@
     <div class="wrap hero-grid">
       <div>
         <!-- Profile photo embedded here -->
-        <img src="Avatar.png" alt="Sushant Devkota" class="profile-avatar">
+        <img src="sushant.png" alt="Sushant Devkota" class="profile-avatar">
         <p class="eyebrow">Open to work</p>
         <h1>Sushant Devkota builds the <span class="accent">pipelines</span> that keep systems running.</h1>
         <p class="lede">Computer Engineering graduate working in public-sector IT and e-governance, with hands-on experience across firewalls, switches, wireless networks, and Active Directory, plus training in Docker, Kubernetes, and Terraform. Looking for a full-time seat on a Network, Systems, or DevOps Engineering team.</p>
@@ -314,7 +314,7 @@
       <div class="section-head reveal">
         <p class="section-tag">// career, read as a pipeline</p>
         <h2 class="section-title">How I got here</h2>
-        <p class="section-desc">Five stages, same as any deploy: build the foundation, train, test it under real conditions, ship it, then keep watching the dashboards.</p>
+        <p class="section-desc">Six stages, same as any deploy: build the foundation, hit a scheduled checkpoint, train, test it under real conditions, ship it, then keep watching the dashboards.</p>
       </div>
       <div class="pipeline">
         <div class="stage">
@@ -332,7 +332,21 @@
           </div>
         </div>
         <div class="stage">
-          <div class="stage-tag">02 · BUILD</div>
+          <div class="stage-tag">02 · CHECKPOINT</div>
+          <div class="stage-main">
+            <div class="stage-top">
+              <h3 class="stage-title">Sadhanapada — a planned pause</h3>
+              <span class="stage-org">Isha Yoga Center, Coimbatore, India</span>
+            </div>
+            <p class="stage-desc">A 9-month full-time residential program built around structured daily practice and Seva — volunteer service rotated across ashram departments including administration, logistics, and IT — alongside participants from dozens of countries. A deliberate reset before committing fully to an infrastructure career.</p>
+            <div class="stage-meta">
+              <span class="badge ok"><span class="dotb"></span>complete</span>
+              <span class="stage-date">Jun 2024 – Feb 2025</span>
+            </div>
+          </div>
+        </div>
+        <div class="stage">
+          <div class="stage-tag">03 · BUILD</div>
           <div class="stage-main">
             <div class="stage-top">
               <h3 class="stage-title">DevOps Training</h3>
@@ -346,7 +360,7 @@
           </div>
         </div>
         <div class="stage">
-          <div class="stage-tag">03 · TEST</div>
+          <div class="stage-tag">04 · TEST</div>
           <div class="stage-main">
             <div class="stage-top">
               <h3 class="stage-title">IT Assistant, Intern (Network Focus)</h3>
@@ -360,7 +374,7 @@
           </div>
         </div>
         <div class="stage">
-          <div class="stage-tag">04 · DEPLOY</div>
+          <div class="stage-tag">05 · DEPLOY</div>
           <div class="stage-main">
             <div class="stage-top">
               <h3 class="stage-title">IT & Administrative Assistant</h3>
@@ -374,7 +388,7 @@
           </div>
         </div>
         <div class="stage">
-          <div class="stage-tag">05 · MONITOR</div>
+          <div class="stage-tag">06 · MONITOR</div>
           <div class="stage-main">
             <div class="stage-top">
               <h3 class="stage-title">What's next</h3>
@@ -561,7 +575,7 @@
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 2 .6 2.9a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.4c.9.3 1.9.5 2.9.6a2 2 0 0 1 1.7 2.1z"/></svg></span>
         <span><span class="cc-label">Phone</span><p class="cc-value">+977 984-3818474</p></span>
       </a>
-      <a class="contact-card" href="https://github.com/sdevkota474" target="_blank" rel="noopener">
+      <a class="contact-card" href="https://github.com/your-username" target="_blank" rel="noopener">
         <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></span>
         <span><span class="cc-label">GitHub</span><p class="cc-value">github.com/your-username</p></span>
       </a>
@@ -613,7 +627,7 @@
     entries.forEach(function(entry, idx){
       if(entry.isIntersecting){
         var stageIndex = Array.prototype.indexOf.call(stages, entry.target);
-        setTimeout(function(){ entry.target.classList.add('in'); }, stageIndex >= 0 ? (stageIndex % 5) * 90 : 0);
+        setTimeout(function(){ entry.target.classList.add('in'); }, stageIndex >= 0 ? (stageIndex % 6) * 90 : 0);
         stageObserver.unobserve(entry.target);
       }
     });
